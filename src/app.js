@@ -1,11 +1,14 @@
 import express from "express";
-import { config } from 'dotenv'
+import 'dotenv/config'
 import applyMiddlewares from "./middlewares/index.js";
 import globalErrorHandler from "./utils/globalErrorHandler.js";
-config()
+import userRoute from './routes/users.js'
 const app = express();
 
 applyMiddlewares(app)
+
+// Routing Handling
+app.use(userRoute)
 
 app.get("/", (req, res) => {
   res.status(200).send({ massage: "Server is running" });
