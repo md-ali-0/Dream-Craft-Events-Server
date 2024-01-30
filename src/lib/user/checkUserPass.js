@@ -1,4 +1,4 @@
-import User from "../../models/Users.js"
+import User from "../../models/Users.js";
 import { bcHashCompare } from "../../utils/bcrypt.js";
 
 const checkUserPass = async(user)=>{
@@ -9,17 +9,22 @@ const checkUserPass = async(user)=>{
         const query = {
             email:email
         }
+        
         const reqUser = await User.findOne(query)
+
         if (!reqUser) {
-            return {massage:'User not found'}
+            const error = new Error('User not found')
+            error.status = 404
+            throw error
         }
 
         const cursor = await bcHashCompare(planePassword, reqUser.password)
         if (cursor) {
-            // return {massage:'success',...reqUser._doc}
-            return {massage:'success',name:reqUser.name, email:reqUser.email, image:reqUser.image,createdAt:reqUser.createdAt}
+            return reqUser
         } else{
-            return {massage:'Password is Wrong'}
+            const error = new Error('Password is Wrong')
+            error.status = 401
+            throw error
         }
 
     } catch(err){

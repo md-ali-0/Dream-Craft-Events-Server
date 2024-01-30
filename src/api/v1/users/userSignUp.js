@@ -10,7 +10,7 @@ const userSignUp = async(req, res)=>{
         const result = await addUser(user)
         res.send(result)
     } catch (error) {
-        return res.send({acknowledged: false,InsertedId: null,error})
+        return res.status(error?.status || 500).send(error.message)
     }
 }
 

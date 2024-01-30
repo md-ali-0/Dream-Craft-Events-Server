@@ -7,7 +7,9 @@ const addUser = async(user)=>{
         return cursor
     } catch(err){
         if (err.code=11000) {
-            return {code: 409, massage: 'email already exists'}
+            const error = new Error('Email Aready Exists')
+            error.status = 404
+            throw error
         }
         throw new Error(err)
     }

@@ -1,5 +1,4 @@
 import checkUserPass from "../../../lib/user/checkUserPass.js";
-import { bcHashCompare } from "../../../utils/bcrypt.js"
 
 const userSignIn = async(req, res)=>{
     const user = req.body;
@@ -7,7 +6,7 @@ const userSignIn = async(req, res)=>{
         const result = await checkUserPass(user)
         res.send(result)
     } catch (error) {
-        return res.send({acknowledged: false,InsertedId: null, error})
+        return res.status(error?.status || 500).send(error.message)
     }
 }
 
