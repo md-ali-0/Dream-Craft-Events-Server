@@ -3,7 +3,7 @@ import express from "express";
 import applyMiddlewares from "./middlewares/index.js";
 import eventRouter from './routes/events.js';
 import userRoute from './routes/users.js';
-import shopRouter from './routes/shops.js'
+import shopRouter from './routes/products.js'
 import globalErrorHandler from "./utils/globalErrorHandler.js";
 const app = express();
 
