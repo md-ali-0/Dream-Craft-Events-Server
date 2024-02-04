@@ -4,7 +4,7 @@ import allShops from "../api/v1/products/allProducts.js"
 
 
 const router = Router()
-router.get('/shops', allShops )
+router.get('/products', allShops )
 
 
 export default router
