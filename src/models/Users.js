@@ -7,6 +7,7 @@ const UserSchema = new Schema(
         'image' : {type: String, required: true,
                     default: 'https://placehold.co/500x500/png'
                 },
+        'role': {type: String, required: true, enum: ['admin', 'organizer', 'user'], default: 'user'},
         'password' : { type: String, required: true},
         'createdAt': { type: Date, default: new Date()},
     },

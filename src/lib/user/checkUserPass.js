@@ -1,3 +1,5 @@
+import "dotenv/config";
+import jwt from "jsonwebtoken";
 import User from "../../models/Users.js";
 import { bcHashCompare } from "../../utils/bcrypt.js";
 
@@ -20,7 +22,14 @@ const checkUserPass = async(user)=>{
 
         const cursor = await bcHashCompare(planePassword, reqUser.password)
         if (cursor) {
-            return reqUser
+            const token = jwt.sign({email:reqUser.email}, process.env.ACCESS_TOKEN, {
+                expiresIn: "1h",
+            });
+            const result = {
+                user: reqUser,
+                token
+            }
+            return result
         } else{
             const error = new Error('Password is Wrong')
             error.status = 401

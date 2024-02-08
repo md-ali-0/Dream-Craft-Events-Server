@@ -1,9 +1,9 @@
 import { Router } from "express";
-import userSignUp from "../api/v1/users/userSignUp.js";
 import userSignIn from "../api/v1/users/userSignIn.js";
+import userSignUp from "../api/v1/users/userSignUp.js";
 
 const router = Router()
-router.post('/add-user', userSignUp)
-router.post('/login-user', userSignIn)
+router.post('/signup', userSignUp)
+router.post('/login', userSignIn)
 
 export default router
