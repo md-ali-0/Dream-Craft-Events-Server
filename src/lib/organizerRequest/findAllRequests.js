@@ -1,4 +1,4 @@
-const OrganizerRequest = require("../../models/OrganizerRequest");
+import OrganizerRequest from "../../models/OrganizerRequest.js";
 
 
 const findAllRequests = async () => {
@@ -7,4 +7,4 @@ const findAllRequests = async () => {
     return cursor
 }
 
-module.exports = findAllRequests
+export default findAllRequests
