@@ -1,23 +1,15 @@
-const OrganizerRequest = require("../../../../models/OrganizerRequest");
+import OrganizerRequest from "../../../../models/OrganizerRequest.js";
 
 const postRequest = async (req, res) => {
-    const { name, email, company, experience, skills } = req.body;
+    const request = req.body;
 
     try {
-        const newRequest = new OrganizerRequest({
-            name,
-            email,
-            company,
-            experience,
-            skills
-        });
-
-        const savedRequest = await newRequest.save();
-        res.send(savedRequest);
-    } catch (err) {
-        console.error('Error saving request:', err);
+        const newRequest = new OrganizerRequest(request);
+        const result = await newRequest.save();
+        res.send(result);
+    } catch (error) {
+        console.error('Error saving request:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-
-module.exports = postRequest;
+export default postRequest;

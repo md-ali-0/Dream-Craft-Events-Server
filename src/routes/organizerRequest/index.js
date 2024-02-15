@@ -1,9 +1,9 @@
 import { Router } from "express";
-import findAll from "../../api/v1/organizerRequest/controllers/findAll";
-import postRequest from "../../api/v1/organizerRequest/controllers/postRequest";
+import findAll from "../../api/v1/organizerRequest/controllers/findAll.js";
+import postRequest from "../../api/v1/organizerRequest/controllers/postRequest.js";
 
 const router = Router()
-router.get('/organizerRequest', findAll)
-router.post('/organizerRequest', postRequest)
+router.get('/request-organizer', findAll)
+router.post('/request-organizer', postRequest)
 
-module.exports = router;
+export default router

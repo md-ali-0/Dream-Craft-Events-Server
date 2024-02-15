@@ -1,8 +1,13 @@
-const findAllRequests = require("../../../../lib/organizerRequest/findAllRequests");
+import findAllRequests from "../../../../lib/organizerRequest/findAllRequests.js";
 
 const findAll = async (req, res) => {
-    const allServices = await findAllRequests()
-    res.send(allServices);
+    try {
+        const result = await findAllRequests()
+        res.send(result)
+    } catch (error) {
+        return res.send(error)
+    }
 }
 
-module.exports = findAll
+
+export default findAll
