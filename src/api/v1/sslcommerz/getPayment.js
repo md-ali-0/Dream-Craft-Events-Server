@@ -1,8 +1,10 @@
 import SSLCommerzPayment from "sslcommerz-lts";
 import Transaction from "../../../models/Transaction.js";
 import { Types } from "mongoose";
-const store_id = process.env.STORE_ID
-const store_passwd = process.env.STORE_PASSWD
+import 'dotenv/config'
+
+const store_id = 'datad65ceef48f39dc'
+const store_passwd = 'datad65ceef48f39dc@ssl'
 const is_live = false
 
 const payment = async (req, res) => {
