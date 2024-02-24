@@ -7,6 +7,7 @@ import shopRouter from './routes/products.js'
 import requestRouter from './routes/organizerRequest/index.js'
 import paymentRouter from './routes/sslcommerz/payment.js';
 import globalErrorHandler from "./utils/globalErrorHandler.js";
+import ordersRouter from './routes/productOrders/index.js'
 const app = express();
 
 applyMiddlewares(app)
@@ -17,6 +18,7 @@ app.use(eventRouter)
 app.use(shopRouter)
 app.use(requestRouter)
 app.use(paymentRouter)
+app.use(ordersRouter)
 
 app.get("/", (req, res) => {
   res.status(200).send({ massage: "Server is running" });
