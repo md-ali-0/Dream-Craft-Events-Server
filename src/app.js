@@ -8,6 +8,7 @@ import requestRouter from './routes/organizerRequest/index.js'
 import paymentRouter from './routes/sslcommerz/payment.js';
 import globalErrorHandler from "./utils/globalErrorHandler.js";
 import contactRouter from './routes/Contact.js'
+import customEventRouter from './routes/customEvent.js'
 const app = express();
 
 applyMiddlewares(app)
@@ -19,6 +20,7 @@ app.use(shopRouter)
 app.use(requestRouter)
 app.use(paymentRouter)
 app.use(contactRouter) //contact
+app.use(customEventRouter)
 
 app.get("/", (req, res) => {
   res.status(200).send({ massage: "Server is running" });
