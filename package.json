@@ -19,6 +19,7 @@
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.1.0"
+    "mongoose": "^8.1.0",
+    "sslcommerz-lts": "^1.1.0"
   }
 }

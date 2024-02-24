@@ -17,4 +17,4 @@ const allUsers = async (req, res)=>{
     }
 }
 
-export default allUsers
+export default allUsers;
