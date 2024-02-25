@@ -11,7 +11,7 @@ const ProductOrdersSchema = new Schema(
             required: true
         },
         "user_image": { type: String, required: true, 
-          default: 'https://placehold.co/650x400/png'
+          default: 'https://i.ibb.co/s6CHS24/profile3.png'
       },
         "user_email": {
             type: String,
@@ -19,7 +19,7 @@ const ProductOrdersSchema = new Schema(
         },
         "product_id": {
             type: String,
-            required: true
+            // required: true
         },
         'product_image': { type: String, required: true, 
           default: 'https://placehold.co/650x400/png'
