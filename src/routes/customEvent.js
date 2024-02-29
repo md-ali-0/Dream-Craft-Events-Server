@@ -11,7 +11,7 @@ router.get('/custom-event', findCustomEvent)
 // router.patch()
 
 router.patch('/custom-event/:id', updatePendingStatus)
-router.patch('/custom-event/reject/:id', updateReject)
+router.put('/custom-event/:id', updateReject)
 
 
 export default router;
