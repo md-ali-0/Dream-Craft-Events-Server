@@ -8,6 +8,6 @@ const router = Router()
 router.post('/custom-event', CustomEvents)
 router.get('/custom-event', findCustomEvent)
 router.patch('/custom-event/:id', updatePendingStatus)
-router.put('/custom-event/:id', updateReject)
+router.patch('/custom-event/reject/:id', updateReject)
 
 export default router;
