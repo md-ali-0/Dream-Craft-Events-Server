@@ -9,5 +9,6 @@ router.get('/events', allEvents)
 router.get('/event/:id', singleEvent)
 router.get('/edit-event/:id', editEvent)
 router.post('/add-event', addEvent)
+router.post('/delete-event', addEvent)
 
 export default router
