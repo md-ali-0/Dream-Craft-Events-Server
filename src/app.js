@@ -10,6 +10,7 @@ import globalErrorHandler from "./utils/globalErrorHandler.js";
 import ordersRouter from './routes/productOrders/index.js'
 import contactRouter from './routes/Contact.js'
 import customEventRouter from './routes/customEvent.js'
+import dashboardRouter from './routes/dashboard.js'
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(paymentRouter)
 app.use(ordersRouter)
 app.use(contactRouter) //contact
 app.use(customEventRouter)
+app.use(dashboardRouter)
 
 
 app.get("/", (req, res) => {
