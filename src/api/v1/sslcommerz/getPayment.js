@@ -10,15 +10,15 @@ const is_live = false
 const payment = async (req, res) => {
 
     const order = req.body
-    // const tran_id = Types.ObjectId()
-    // console.log(tran_id);
+    const tran_id = new Types.ObjectId().toHexString()
+    console.log(tran_id);
 
     const data = {
         event_id: order.eventId,
         total_amount: order.amount,
         currency: order.currency,
-        tran_id: 'tran_id',
-        success_url: `http://localhost:5173/payment/success`,
+        tran_id: tran_id,
+        success_url: `https://dream-craft-server.vercel.app/payment/success/${tran_id}`,
         fail_url: 'http://localhost:3030/fail',
         cancel_url: 'http://localhost:3030/cancel',
         ipn_url: 'http://localhost:3030/ipn',
@@ -49,25 +49,25 @@ const payment = async (req, res) => {
         const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);
         const apiResponse = await sslcz.init(data);
 
+        // Redirect the user to the payment gateway
+        res.send({ url: apiResponse.GatewayPageURL });
+
         // Save payment details to the database
         const payment = new Transaction({
             event_id: data.event_id,
             total_amount: data.total_amount,
             currency: data.currency,
             tran_id: data.tran_id,
-            success_url: data.success_url,
-            fail_url: data.fail_url,
-            cancel_url: data.cancel_url,
-            ipn_url: data.ipn_url,
             cus_name: data.cus_name,
             cus_email: data.cus_email,
             cus_address: data.cus_add1,
+            paidStatus: false
         });
+
         await payment.save();
 
-        // Redirect the user to the payment gateway
-        res.send({ url: apiResponse.GatewayPageURL });
-        console.log('Redirecting to:', apiResponse);
+        // console.log('Redirecting to:', apiResponse);
+
     } catch (error) {
         console.error('Error initializing payment:', error);
         res.status(500).send('Error initializing payment');
