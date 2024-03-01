@@ -43,6 +43,7 @@ const payment = async (req, res) => {
         ship_state: 'Dhaka',
         ship_postcode: 1000,
         ship_country: 'Bangladesh',
+        eventTitle: order.eventTitle,
     };
 
     try {
@@ -55,6 +56,7 @@ const payment = async (req, res) => {
         // Save payment details to the database
         const payment = new Transaction({
             event_id: data.event_id,
+            eventTitle: data.eventTitle,
             total_amount: data.total_amount,
             currency: data.currency,
             tran_id: data.tran_id,

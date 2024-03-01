@@ -41,4 +41,4 @@ const OrganizerRequestSchema = new Schema(
 
 const OrganizerRequest = model("organizer-request", OrganizerRequestSchema)
 
-export default OrganizerRequest
+export default OrganizerRequest;
