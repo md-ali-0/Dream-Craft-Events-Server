@@ -12,7 +12,7 @@ const rejectCustomEvent = async (req, res) => {
     try {
 
         const updateStatus = await CustomEvent.findOneAndUpdate(filter, update)
-        console.log(updateStatus);
+        res.send(updateStatus);
         
     } catch (error) {
         console.error("Error updating status:", error)
