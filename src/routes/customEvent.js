@@ -8,7 +8,7 @@ import inboxByUser from "../api/v1/customEvent/inboxByUser.js"
 const router = Router()
 router.post('/custom-event', CustomEvents)
 router.get('/custom-event', findCustomEvent)
-router.get('/custom-event', inboxByUser)
+router.get('/custom-event/inbox', inboxByUser)
 
 //update data
 router.patch('/custom-event/:id', updatePendingStatus)
