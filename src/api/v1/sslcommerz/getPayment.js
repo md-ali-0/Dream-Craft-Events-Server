@@ -15,6 +15,7 @@ const payment = async (req, res) => {
 
     const data = {
         event_id: order.eventId,
+        event_image: order.eventImage,  
         total_amount: order.amount,
         currency: order.currency,
         tran_id: tran_id,
@@ -55,6 +56,7 @@ const payment = async (req, res) => {
         // Save payment details to the database
         const payment = new Transaction({
             event_id: data.event_id,
+            event_image: data.event_image,
             total_amount: data.total_amount,
             currency: data.currency,
             tran_id: data.tran_id,
