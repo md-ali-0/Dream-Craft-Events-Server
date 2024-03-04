@@ -4,7 +4,7 @@ const inboxByUser = async (req, res) => {
     const email = req.query.email;
 
     try {
-        const request = await CustomEvent.find({ email });
+        const request = await CustomEvent.find({ email }).sort({ date: -1 });
         res.send(request)
     } catch (error) {
         console.error('Error checking user inbox:', error);

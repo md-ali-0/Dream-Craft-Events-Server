@@ -15,7 +15,8 @@ const CustomEventSchema = new Schema(
         'catering': { type: String, required: false},
         'request': {type: String, required: false},
         'cost': {type: Number, required: true},
-        'status': {type: String, required: false}
+        'status': {type: String, required: false},
+        'seen': {type: String, required: false}
     },
     {versionKey: false}
 )
