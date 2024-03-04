@@ -4,6 +4,7 @@ const transactionSchema = new Schema(
     {
         event_id: String,
         eventImage: String,
+        eventTitle: String,
         total_amount: Number,
         currency: String,
         'tran_id': { type: String, require: true },
