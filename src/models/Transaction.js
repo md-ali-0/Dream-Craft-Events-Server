@@ -3,6 +3,7 @@ import { Schema, Types, model } from "mongoose";
 const transactionSchema = new Schema(
     {
         event_id: String,
+        eventImage: String,
         eventTitle: String,
         total_amount: Number,
         currency: String,

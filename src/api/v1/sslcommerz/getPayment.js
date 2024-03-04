@@ -15,12 +15,14 @@ const payment = async (req, res) => {
 
     const data = {
         event_id: order.eventId,
+        event_image: order.eventImage,  
         total_amount: order.amount,
         currency: order.currency,
         tran_id: tran_id,
         success_url: `https://dream-craft-server.vercel.app/payment/success/${tran_id}`,
         fail_url: 'http://localhost:3030/fail',
         cancel_url: 'http://localhost:3030/cancel',
+        
         ipn_url: 'http://localhost:3030/ipn',
         shipping_method: 'Courier',
         product_name: 'Computer.',
@@ -56,6 +58,7 @@ const payment = async (req, res) => {
         // Save payment details to the database
         const payment = new Transaction({
             event_id: data.event_id,
+            event_image: data.event_image,
             eventTitle: data.eventTitle,
             total_amount: data.total_amount,
             currency: data.currency,
