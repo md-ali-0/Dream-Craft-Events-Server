@@ -19,6 +19,7 @@ const payment = async (req, res) => {
         currency: order.currency,
         tran_id: tran_id,
         success_url: `https://dream-craft-server.vercel.app/payment/success/${tran_id}`,
+        // success_url: `http://localhost:8080/payment/success/${tran_id}`,
         fail_url: 'http://localhost:3030/fail',
         cancel_url: 'http://localhost:3030/cancel',
         
