@@ -11,11 +11,10 @@ const payment = async (req, res) => {
 
     const order = req.body
     const tran_id = new Types.ObjectId().toHexString()
-    console.log(tran_id);
 
     const data = {
         event_id: order.eventId,
-        event_image: order.eventImage,  
+        event_image: order.eventImage,
         total_amount: order.amount,
         currency: order.currency,
         tran_id: tran_id,
@@ -58,7 +57,7 @@ const payment = async (req, res) => {
         // Save payment details to the database
         const payment = new Transaction({
             event_id: data.event_id,
-            event_image: data.event_image,
+            eventImage: data.event_image,
             eventTitle: data.eventTitle,
             total_amount: data.total_amount,
             currency: data.currency,
