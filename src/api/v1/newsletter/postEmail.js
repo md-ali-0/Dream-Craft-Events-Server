@@ -1,8 +1,5 @@
 import news from "../../../models/Newsletter.js";
 
-
-
-
 const postEmail = async (req, res) => {
     const request = req.body;
 
