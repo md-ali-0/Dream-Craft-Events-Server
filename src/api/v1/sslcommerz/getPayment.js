@@ -11,18 +11,19 @@ const payment = async (req, res) => {
 
     const order = req.body
     const tran_id = new Types.ObjectId().toHexString()
-    console.log(tran_id);
 
     const data = {
         event_id: order.eventId,
-        event_image: order.eventImage,  
+        event_image: order.eventImage,
+        event_date: order.eventDate,
         total_amount: order.amount,
         currency: order.currency,
         tran_id: tran_id,
         success_url: `https://dream-craft-server.vercel.app/payment/success/${tran_id}`,
-        fail_url: 'http://localhost:3030/fail',
-        cancel_url: 'http://localhost:3030/cancel',
-        
+        // success_url: `http://localhost:8080/payment/success/${tran_id}`,
+        fail_url: `https://dream-craft-server.vercel.app/payment/fail/${tran_id}`,
+        cancel_url: 'https://dream-craft-event.web.app/',
+
         ipn_url: 'http://localhost:3030/ipn',
         shipping_method: 'Courier',
         product_name: 'Computer.',
@@ -58,8 +59,9 @@ const payment = async (req, res) => {
         // Save payment details to the database
         const payment = new Transaction({
             event_id: data.event_id,
-            event_image: data.event_image,
+            eventImage: data.event_image,
             eventTitle: data.eventTitle,
+            eventDate: data.event_date,
             total_amount: data.total_amount,
             currency: data.currency,
             tran_id: data.tran_id,

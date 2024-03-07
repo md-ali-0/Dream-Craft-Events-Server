@@ -13,8 +13,8 @@ const transId = async (req, res) => {
         );
 
         if (updatedTransaction) {
-            // res.redirect(`http://localhost:5173/payment/success/${tranId}`);
             res.redirect(`https://dream-craft-event.web.app/payment/success/${tranId}`);
+            // res.redirect(`http://localhost:5173/payment/success/${tranId}`);
         }
     } catch (error) {
         console.error("Error updating transaction:", error);

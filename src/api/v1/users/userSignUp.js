@@ -5,9 +5,9 @@ import { bcHashGen } from "../../../utils/bcrypt.js";
 
 const userSignUp = async(req, res)=>{
     const planePassword = req.body.password
-    const password = await bcHashGen(planePassword)
+    const hashPassword = await bcHashGen(planePassword)
     let user = {...req.body}
-    user.password = password
+    user.password = hashPassword
     try {
         const result = await addUser(user)
         if (result) {
