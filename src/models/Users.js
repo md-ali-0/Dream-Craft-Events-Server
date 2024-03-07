@@ -23,10 +23,6 @@ const UserSchema = new Schema(
     },
     { versionKey: false }
 )
-UserSchema.virtual('name').get(function() {
-    return `${this.firstname} ${this.lastname}`;
-});
-UserSchema.set('toJSON', { virtuals: true });
 
 const User = model('users', UserSchema)
 
