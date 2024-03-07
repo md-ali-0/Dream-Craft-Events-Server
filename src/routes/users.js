@@ -9,6 +9,8 @@ import userSignUp from "../api/v1/users/userSignUp.js";
 import userToOrganizer from "../api/v1/users/userToOrganizer.js";
 import deleteUser from "../api/v1/users/deleteUser.js";
 import updatePass from "../api/v1/users/updatePass.js";
+import googleLogin from "../api/v1/users/googleLogin.js";
+import "dotenv/config";
 
 const router = Router()
 router.post('/signup', userSignUp)
@@ -21,5 +23,7 @@ router.put('/edit-user/:id', editUser)
 router.put('/update-pass/:id', updatePass)
 router.put('/users/organizer/:userId', userToOrganizer)
 router.delete('/delete-user/:id', deleteUser)
+router.post('/google-login', googleLogin)
+
 
 export default router

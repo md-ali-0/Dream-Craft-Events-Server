@@ -17,11 +17,15 @@ const UserSchema = new Schema(
         'country' : {type: String},
         'bio' : {type: String},
         'role': {type: String, required: true, enum: ['admin', 'organizer', 'user'], default: 'user'},
-        'password' : { type: String, required: true},
+        'password' : { type: String},
         'createdAt': { type: Date, default: new Date()},
     },
     { versionKey: false }
 )
+UserSchema.virtual('name').get(function() {
+    return `${this.firstname} ${this.lastname}`;
+});
+UserSchema.set('toJSON', { virtuals: true });
 
 const User = model('users', UserSchema)
 
